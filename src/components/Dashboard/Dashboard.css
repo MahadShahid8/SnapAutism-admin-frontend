@@ -1,0 +1,79 @@
+.dashboard-layout {
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-header {
+    background-color: #001529;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.dashboard-content {
+    padding: 20px;
+    background-color: #fff;
+    flex-grow: 1; /* Allows the content to fill available space */
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Adds space between sections */
+}
+
+.content-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Enables horizontal scrolling */
+    white-space: nowrap; /* Prevents wrapping of table rows */
+    max-width: 100%; /* Ensures container width adapts */
+    width: 100%; /* Allows the content to scale */
+    box-sizing: border-box; /* Includes padding in width */
+}
+
+.dashboard-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    text-align: center; /* Centers the title for smaller screens */
+}
+
+.ant-menu-dark .ant-menu-item-selected {
+    background-color: #1890ff !important;
+}
+
+.ant-table {
+    border-radius: 8px;
+    
+    width: 100%; /* Ensures the table scales to the container */
+}
+
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-direction: column;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .dashboard-content {
+        padding: 10px;
+    }
+
+    .content-container {
+        padding: 10px;
+    }
+
+    .dashboard-title {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+}
