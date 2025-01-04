@@ -264,9 +264,9 @@ const Dashboard = () => {
       width: 100,
       render: (isActive) =>
         isActive ? (
-          <Tag color="green">Active</Tag>
+          <Tag color="#1D9BF0">Active</Tag>
         ) : (
-          <Tag color="red">Inactive</Tag>
+          <Tag color="#DC3545">Inactive</Tag>
         ),
     },
     {
@@ -277,7 +277,11 @@ const Dashboard = () => {
           <Button
             type="primary"
             onClick={() => handleViewConsultations(record._id)}
-            style={{ marginRight: 8 }}
+            style={{
+              marginRight: 8,
+              backgroundColor: "#1D9BF0",
+              borderColor: "#1D9BF0",
+            }}
           >
             View Consultations
           </Button>
@@ -390,7 +394,14 @@ const Dashboard = () => {
   return (
     <Layout className="dashboard-layout">
       <Header className="dashboard-header">
-        <div className="logo">Admin Dashboard</div>
+        <div className="logo-container">
+          <img
+            src="/logo-playstore.png"
+            alt="SnapAutism Logo"
+            className="dashboard-logo"
+          />
+          <span className="logo-text">Admin Dashboard</span>
+        </div>
         <Menu
           mode="horizontal"
           onClick={handleMenuClick}
@@ -402,33 +413,45 @@ const Dashboard = () => {
           <Menu.Item key="users">Users</Menu.Item>
           <Menu.Item key="consultations">Consultations</Menu.Item>
         </Menu>
-        <Button type="primary" danger onClick={handleLogout}>
+        <Button
+          type="primary"
+          danger
+          onClick={handleLogout}
+          style={{
+            backgroundColor: "#1D9BF0",
+            borderColor: "#1D9BF0",
+          }}
+        >
           Logout
         </Button>
       </Header>
 
       <Content className="dashboard-content">
-        <h1>{view.charAt(0).toUpperCase() + view.slice(1)}</h1>
-        <Table
-          columns={
-            view === "psychologists"
-              ? psychologistColumns
-              : view === "users"
-              ? userColumns
-              : consultationColumns
-          }
-          dataSource={
-            view === "psychologists"
-              ? psychologists
-              : view === "users"
-              ? users
-              : view === "consultations"
-              ? consultations
-              : filteredConsultations
-          }
-          loading={loading}
-          bordered
-        />
+        <div className="content-container">
+          <h1 className="dashboard-title">
+            {view.charAt(0).toUpperCase() + view.slice(1)}
+          </h1>
+          <Table
+            columns={
+              view === "psychologists"
+                ? psychologistColumns
+                : view === "users"
+                ? userColumns
+                : consultationColumns
+            }
+            dataSource={
+              view === "psychologists"
+                ? psychologists
+                : view === "users"
+                ? users
+                : view === "consultations"
+                ? consultations
+                : filteredConsultations
+            }
+            loading={loading}
+            bordered
+          />
+        </div>
       </Content>
     </Layout>
   );

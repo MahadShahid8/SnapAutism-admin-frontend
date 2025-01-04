@@ -22,12 +22,11 @@ const AdminLogin = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          credentials: "include", // Add this
+          credentials: "include",
           body: JSON.stringify({ email, password }),
         }
       );
 
-      // Log the response for debugging
       console.log("Response status:", response.status);
       const data = await response.json();
       console.log("Response data:", data);
@@ -51,6 +50,13 @@ const AdminLogin = () => {
     <Layout className="admin-login-layout">
       <Content className="admin-login-content">
         <div className="login-form-container">
+          <div className="login-logo-container">
+            <img
+              src="/logo-playstore.png"
+              alt="SnapAutism Logo"
+              className="login-logo"
+            />
+          </div>
           <h1 className="login-title">Admin Login</h1>
           <Form
             name="admin_login"
@@ -58,7 +64,6 @@ const AdminLogin = () => {
             onFinish={onFinish}
             className="login-form"
           >
-            {/* Email Input */}
             <Form.Item
               label="Email"
               name="email"
@@ -73,7 +78,6 @@ const AdminLogin = () => {
               <Input placeholder="Enter email" />
             </Form.Item>
 
-            {/* Password Input */}
             <Form.Item
               label="Password"
               name="password"
@@ -84,7 +88,6 @@ const AdminLogin = () => {
               <Input.Password placeholder="Enter password" />
             </Form.Item>
 
-            {/* Submit Button */}
             <Form.Item>
               <Button
                 type="primary"

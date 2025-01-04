@@ -1,79 +1,111 @@
 .dashboard-layout {
     min-height: 100vh;
-    background-color: #f0f2f5;
-    display: flex;
-    flex-direction: column;
-}
-
-.dashboard-header {
-    background-color: #001529;
+    background-color: #f8f9fa;
+  }
+  
+  .dashboard-header {
+    background-color: #0D1117;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-}
-
-.logo {
+    height: 64px;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .dashboard-logo {
+    height: 40px;
+    width: auto;
+  }
+  
+  .logo-text {
     color: white;
     font-size: 20px;
     font-weight: bold;
-}
-
-.dashboard-content {
-    padding: 20px;
-    background-color: #fff;
-    flex-grow: 1; /* Allows the content to fill available space */
-    display: flex;
-    flex-direction: column;
-    gap: 16px; /* Adds space between sections */
-}
-
-.content-container {
-    background-color: #ffffff;
-    padding: 20px;
+  }
+  
+  .dashboard-content {
+    padding: 24px;
+  }
+  
+  .content-container {
+    background-color: white;
+    padding: 24px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow-x: auto; /* Enables horizontal scrolling */
-    white-space: nowrap; /* Prevents wrapping of table rows */
-    max-width: 100%; /* Ensures container width adapts */
-    width: 100%; /* Allows the content to scale */
-    box-sizing: border-box; /* Includes padding in width */
-}
-
-.dashboard-title {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dashboard-title {
+    color: #0D1117;
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 16px;
-    text-align: center; /* Centers the title for smaller screens */
-}
-
-.ant-menu-dark .ant-menu-item-selected {
-    background-color: #1890ff !important;
-}
-
-.ant-table {
-    border-radius: 8px;
-    
-    width: 100%; /* Ensures the table scales to the container */
-}
-
-@media (max-width: 768px) {
+    margin-bottom: 24px;
+  }
+  
+  /* Override Ant Design styles */
+  .ant-menu.ant-menu-dark {
+    background-color: #0D1117;
+  }
+  
+  .ant-menu-dark .ant-menu-item-selected {
+    background-color: #1D9BF0 !important;
+  }
+  
+  .ant-table-thead > tr > th {
+    background-color: #f8f9fa;
+    color: #0D1117;
+  }
+  
+  .ant-btn-primary {
+    background-color: #1D9BF0;
+    border-color: #1D9BF0;
+  }
+  
+  .ant-btn-primary:hover {
+    background-color: #1a8cd8;
+    border-color: #1a8cd8;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
     .dashboard-header {
-        flex-direction: column;
-        padding: 10px;
-        text-align: center;
+      padding: 0 12px;
     }
-
+  
+    .logo-text {
+      font-size: 16px;
+    }
+  
+    .dashboard-logo {
+      height: 32px;
+    }
+  
     .dashboard-content {
-        padding: 10px;
+      padding: 12px;
     }
-
+  
     .content-container {
-        padding: 10px;
+      padding: 16px;
     }
-
+  
     .dashboard-title {
-        font-size: 20px;
-        margin-bottom: 12px;
+      font-size: 20px;
+      margin-bottom: 16px;
     }
-}
+  }
+  
+  /* Table responsive styles */
+  .ant-table {
+    overflow-x: auto;
+  }
+  
+  @media (max-width: 576px) {
+    .ant-table-content {
+      overflow-x: auto;
+    }
+  }
